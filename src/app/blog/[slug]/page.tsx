@@ -2,7 +2,7 @@ import { getPostBySlug, getAllPosts } from "@/lib/content-api";
 import { Metadata } from "next";
 import { notFound } from "next/navigation";
 import { MDXRemote } from "next-mdx-remote/rsc";
-import { Clock, Tag, ArrowLeft } from "lucide-react";
+import { Clock, Tag, ArrowLeft, Linkedin } from "lucide-react";
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
 import { StickyCTA } from "@/components/blog/StickyCTA";
@@ -84,19 +84,42 @@ export default async function BlogPostPage({ params }: PageProps) {
         <MDXRemote source={post.content} />
       </div>
 
-      <footer className="mt-20 pt-8 border-t">
-        <div className="bg-muted/50 rounded-2xl p-8 flex flex-col items-center text-center">
-          <h3 className="text-xl font-serif font-bold mb-4">Sabrina Barros</h3>
-          <p className="text-muted-foreground text-sm max-w-md mb-6">
-            Dentista e Executiva de Saúde Suplementar. Apaixonada por transformar o setor de saúde através da gestão e tecnologia.
+      <footer className="mt-20 pt-12 border-t">
+        <div className="flex flex-col md:flex-row justify-between items-center gap-8 mb-16">
+          <div className="text-center md:text-left">
+            <p className="text-xs font-bold uppercase tracking-widest text-muted-foreground mb-4">Gostou do conteúdo? Compartilhe:</p>
+            <div className="flex gap-3 justify-center md:justify-start">
+              <a 
+                href={`https://www.linkedin.com/sharing/share-offsite/?url=https://site-sabrina-nessbr-projects.vercel.app/blog/${post.slug}`} 
+                target="_blank" 
+                rel="noopener" 
+                className="h-10 px-6 rounded-full border border-primary/20 bg-primary/5 flex items-center gap-2 hover:bg-primary hover:text-white transition-all font-medium text-sm"
+              >
+                <Linkedin className="h-4 w-4" /> Linkedin
+              </a>
+            </div>
+          </div>
+          <Link href="/blog">
+            <Button variant="outline" className="rounded-full px-8">Ver outros artigos</Button>
+          </Link>
+        </div>
+
+        <div className="bg-muted/50 rounded-3xl p-10 flex flex-col items-center text-center border border-border/40">
+          <div className="w-20 h-20 bg-primary/10 rounded-full flex items-center justify-center mb-6">
+            <span className="text-2xl font-serif font-bold text-primary">SB</span>
+          </div>
+          <h3 className="text-2xl font-serif font-bold mb-4">Sabrina Barros</h3>
+          <p className="text-muted-foreground text-base max-w-lg mb-8 leading-relaxed">
+            Dentista e Executiva de Saúde Suplementar. Atua na intersecção entre regulação, tecnologia e cuidado humano para transformar a saúde no Brasil.
           </p>
           <div className="flex gap-4">
             <a href="https://www.linkedin.com/in/sabrina-barros/" target="_blank" rel="noopener">
-              <Button size="sm" variant="outline" className="rounded-full">Siga no Linkedin</Button>
+              <Button size="lg" className="rounded-full px-8 font-bold">Conectar no Linkedin</Button>
             </a>
           </div>
         </div>
       </footer>
+      <StickyCTA />
     </article>
   );
 }

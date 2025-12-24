@@ -2,7 +2,6 @@ import { Hero } from "@/components/layout/Hero";
 import { FeaturedPosts } from "@/components/blog/FeaturedPosts";
 import { SocialProof } from "@/components/home/SocialProof";
 import { Button } from "@/components/ui/button";
-import { Mail } from "lucide-react";
 
 export default function Home() {
   return (
