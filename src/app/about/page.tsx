@@ -69,33 +69,6 @@ export default function AboutPage() {
           <div className="relative pl-8 space-y-16 before:absolute before:inset-0 before:left-[11px] before:h-full before:w-[1px] before:bg-border/60">
             {[
               {
-                company: "Bekaa",
-                role: "Parceira Estratégica",
-                period: "2024 - Presente",
-                description: [
-                  "Consultoria em gestão de riscos e governança corporativa.",
-                  "Desenvolvimento de soluções estratégicas para o mercado de saúde suplementar."
-                ]
-              },
-              {
-                company: "Baalbeck",
-                role: "Consultora Estratégica",
-                period: "2024 - Presente",
-                description: [
-                  "Apoio na estruturação de modelos de gestão e conformidade regulatória.",
-                  "Análise de tendências de mercado para direcionamento de novos negócios."
-                ]
-              },
-              {
-                company: "Ionic Health",
-                role: "Consultoria em Inovação e Dados",
-                period: "2024 - Presente",
-                description: [
-                  "Integração de visões comportamentais e análise de dados para otimização de redes.",
-                  "Aplicação estratégica de IA na gestão de saúde suplementar."
-                ]
-              },
-              {
                 company: "BenCorp",
                 role: "Relacionamento pós-vendas",
                 period: "2024 - 2025",
