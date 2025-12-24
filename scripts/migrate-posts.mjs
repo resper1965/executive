@@ -33,6 +33,7 @@ async function scrapePost(url) {
         // Precise selectors for Sabrina's specific Elementor setup
         const contentElement = doc.querySelector('.elementor-676 .elementor-widget-theme-post-content') ||
             doc.querySelector('.elementor-widget-theme-post-content') ||
+            doc.querySelector('.elementor-676 .e-con-inner') ||
             doc.querySelector('.elementor-widget-container .entry-content') ||
             doc.querySelector('.entry-content') ||
             doc.querySelector('.elementor-location-single') ||
