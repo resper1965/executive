@@ -20,7 +20,7 @@ export function Hero() {
               Sabrina Barros
             </h1>
             <p className="text-xl text-primary font-medium tracking-wide uppercase mb-8">
-              Trusted Advisor em Saúde & Gestão Estratégica
+              Estrategista e Conselheira de Saúde Suplementar
             </p>
             <div className="prose prose-slate lg:prose-lg max-w-2xl text-muted-foreground leading-relaxed">
               <p>

@@ -23,11 +23,11 @@ export default function AboutPage() {
 
         <div>
           <h1 className="text-4xl font-serif font-bold mb-6 sm:text-5xl lg:text-6xl">Sabrina Barros</h1>
-          <p className="text-xl text-primary font-medium mb-8">Strategic Partner | Trusted Advisor em Saúde Suplementar</p>
+          <p className="text-xl text-primary font-medium mb-8">Parceira Estratégica | Conselheira de Saúde Suplementar</p>
           
           <div className="prose prose-slate lg:prose-lg max-w-none mb-10 text-muted-foreground leading-relaxed">
             <p>
-              Minha trajetória começou no consultório odontológico, onde a precisão clínica era a regra. Hoje, traduzo essa mesma precisão para o mundo corporativo da saúde suplementar, atuando como uma <strong>Trusted Advisor</strong> para organizações que buscam mais do que apenas conformidade.
+              Minha trajetória começou no consultório odontológico, onde a precisão clínica era a regra. Hoje, traduzo essa mesma precisão para o mundo corporativo da saúde suplementar, atuando como uma <strong>conselheira estratégica</strong> para organizações que buscam mais do que apenas conformidade.
             </p>
             <p>
               Com uma visão independente e estratégica, apoio lideranças na <strong>mitigação de riscos regulatórios</strong>, no desenvolvimento de projetos de alta complexidade e no posicionamento de executivos que buscam novos horizontes ou planejam sucessões seguras.
