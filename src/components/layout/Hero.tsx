@@ -29,21 +29,6 @@ export function Hero() {
             </div>
           </motion.div>
 
-          {/* New Cover Banner */}
-          <motion.div
-            initial={{ opacity: 0, scale: 0.95 }}
-            animate={{ opacity: 1, scale: 1 }}
-            transition={{ duration: 0.8, delay: 0.2 }}
-            className="relative w-full aspect-[21/9] sm:aspect-[3/1] rounded-3xl overflow-hidden shadow-2xl border bg-muted"
-          >
-            <Image
-              src="/hero-cover.png"
-              alt="Sabrina Barros Capa"
-              fill
-              className="object-cover"
-              priority
-            />
-          </motion.div>
 
           <motion.div 
             initial={{ opacity: 0, y: 20 }}
