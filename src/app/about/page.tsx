@@ -69,7 +69,9 @@ export default function AboutPage() {
           <Link href="/contact">
             <Button size="lg" className="rounded-full px-8">Entrar em Contato</Button>
           </Link>
-          <Button size="lg" variant="outline" className="rounded-full px-8">Ver Linkedin</Button>
+          <a href="https://www.linkedin.com/in/sabrina-barros/" target="_blank" rel="noopener">
+            <Button size="lg" variant="outline" className="rounded-full px-8">Ver Linkedin</Button>
+          </a>
         </div>
       </section>
     </div>
