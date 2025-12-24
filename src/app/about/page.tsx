@@ -185,8 +185,9 @@ export default function AboutPage() {
             <h3 className="text-sm font-bold uppercase tracking-widest text-primary mb-6">Expertise Estratégica</h3>
             <div className="flex flex-wrap gap-2">
               {[
-                "Gestão de Redes", "Saúde Suplementar", "ANS", "Pós-vendas", 
-                "Agile", "Negociação", "Sinistralidade", "Relacionamento B2B",
+                "Gestão e Análise de Dados", "IA", "Produção de Estudos Estatísticos",
+                "Visões Comportamentais dos Segurados", "Saúde Suplementar", "ANS", 
+                "Pós-vendas", "Negociação", "Sinistralidade", "Relacionamento B2B",
                 "Experiência do Cliente", "Finanças Corporativas"
               ].map(skill => (
                 <span key={skill} className="px-3 py-1 bg-background border border-border text-[11px] font-medium text-muted-foreground rounded-full hover:border-primary/30 hover:text-primary transition-colors">
