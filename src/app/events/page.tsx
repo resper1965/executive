@@ -14,23 +14,17 @@ const upcomingEvents = [
 const pastEvents = [
   {
     title: "Gestão Estratégica de Benefícios",
-    event: "Congresso Brasileiro de Saúde Suplementar",
-    date: "2024",
-    location: "São Paulo, SP",
+    description: "Palestras em congressos do setor sobre como alinhar benefícios de saúde à estratégia corporativa.",
     type: "Palestra"
   },
   {
-    title: "RN 623 e o Futuro da Transparência",
-    event: "Fórum de Regulação ANS",
-    date: "2024",
-    location: "Brasília, DF",
+    title: "RN 623 e Transparência Regulatória",
+    description: "Participações em fóruns e painéis discutindo os impactos da nova regulação ANS.",
     type: "Painel"
   },
   {
     title: "Sinistralidade Comportamental",
-    event: "HR Tech Conference",
-    date: "2023",
-    location: "Rio de Janeiro, RJ",
+    description: "Workshops corporativos focados em análise de padrões e redução de custos em saúde.",
     type: "Workshop"
   }
 ];
@@ -120,21 +114,11 @@ export default function EventsPage() {
           <div className="grid gap-6">
             {pastEvents.map((event, idx) => (
               <div key={idx} className="p-6 rounded-2xl border border-border bg-white hover:shadow-lg transition-shadow group">
-                <div className="flex flex-col md:flex-row justify-between items-start gap-4">
-                  <div className="flex-1">
-                    <div className="flex items-center gap-2 mb-2">
-                      <span className="text-xs font-bold uppercase tracking-widest text-primary/60">{event.type}</span>
-                      <span className="text-muted-foreground">•</span>
-                      <span className="text-xs text-muted-foreground">{event.date}</span>
-                    </div>
-                    <h3 className="text-xl font-serif font-bold mb-2 group-hover:text-primary transition-colors">{event.title}</h3>
-                    <p className="text-muted-foreground text-sm mb-3">{event.event}</p>
-                    <div className="flex items-center gap-1 text-xs text-muted-foreground">
-                      <MapPin className="h-3 w-3" />
-                      {event.location}
-                    </div>
-                  </div>
+                <div className="flex items-center gap-2 mb-2">
+                  <span className="text-xs font-bold uppercase tracking-widest text-primary/60">{event.type}</span>
                 </div>
+                <h3 className="text-xl font-serif font-bold mb-2 group-hover:text-primary transition-colors">{event.title}</h3>
+                <p className="text-muted-foreground text-sm">{event.description}</p>
               </div>
             ))}
           </div>
