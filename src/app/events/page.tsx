@@ -83,12 +83,20 @@ export default function EventsPage() {
                 description: "A análise de padrões que revela a verdadeira causa dos custos em saúde"
               },
               {
-                title: "O Executivo e o Plano de Saúde",
-                description: "Por que líderes precisam entender de gestão de benefícios"
+                title: "Implementação de Planos de Redução de Sinistralidade",
+                description: "Metodologias práticas para reduzir custos sem comprometer a qualidade do cuidado"
               },
               {
-                title: "Do Operacional ao Estratégico em RH",
-                description: "Posicionando a área de benefícios como pilar de retenção de talentos"
+                title: "Orquestração de Múltiplos Operadores",
+                description: "Estratégias para mitigar ineficiência geográfica com gestão inteligente de rede"
+              },
+              {
+                title: "Automação para Corretoras",
+                description: "Implementação de tecnologia para atendimento eficiente a beneficiários"
+              },
+              {
+                title: "O Executivo e o Plano de Saúde",
+                description: "Por que líderes precisam entender de gestão de benefícios"
               },
               {
                 title: "Governança em Saúde Suplementar",
@@ -99,6 +107,7 @@ export default function EventsPage() {
                 description: "Impactos regulatórios e oportunidades para operadoras e empresas"
               }
             ].map((topic, idx) => (
+
               <div key={idx} className="p-5 rounded-2xl border border-border bg-white hover:border-primary/30 transition-colors">
                 <h3 className="font-bold mb-2">{topic.title}</h3>
                 <p className="text-sm text-muted-foreground">{topic.description}</p>

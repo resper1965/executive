@@ -7,6 +7,7 @@ const services = [
     title: "Conselheira Estratégica",
     description: "Atuação em conselhos de administração e comitês de saúde, trazendo uma visão independente e técnica para decisões críticas de governança e sustentabilidade.",
     icon: Shield,
+    href: "/services/conselheira",
     benefits: [
       "Mitigação de riscos regulatórios e jurídicos",
       "Visão de longo prazo para sustentabilidade do benefício",
@@ -17,6 +18,7 @@ const services = [
     title: "Mentoria Executiva",
     description: "Desenvolvimento de lideranças e apoio em transições de carreira de alto impacto no setor de saúde suplementar.",
     icon: Users,
+    href: "/services/mentoria",
     benefits: [
       "Mentoria para novos gestores de saúde",
       "Plano estratégico para transição de executivos",
@@ -27,6 +29,7 @@ const services = [
     title: "Gestão de Crise e Riscos (RN 623)",
     description: "Implementação de processos para adequação à RN 623/2024, transformando conformidade em vantagem competitiva e transparência.",
     icon: BarChart3,
+    href: "/services/rn623",
     benefits: [
       "Adequação rápida aos novos prazos da ANS",
       "Redução de NIPs e processos judiciais",
@@ -37,6 +40,7 @@ const services = [
     title: "Auditoria de Valor Comportamental",
     description: "Análise profunda que cruza dados clínicos com padrões comportamentais para revelar a verdadeira causa da variação de custos.",
     icon: TrendingUp,
+    href: "/services/auditoria",
     benefits: [
       "Identificação de padrões de uso pré-demissional",
       "Ajuste fino em programas de gestão de saúde",
@@ -73,9 +77,9 @@ export default function ServicesPage() {
                 </li>
               ))}
             </ul>
-            <Link href="/contact">
+            <Link href={service.href}>
               <Button variant="outline" className="w-full rounded-xl group-hover:bg-primary group-hover:text-white transition-all">
-                Saber Mais <ArrowRight className="ml-2 h-4 w-4" />
+                Saiba Mais <ArrowRight className="ml-2 h-4 w-4" />
               </Button>
             </Link>
           </div>
