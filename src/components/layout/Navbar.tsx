@@ -1,6 +1,7 @@
 "use client";
 
 import Link from "next/link";
+import Image from "next/image";
 import { usePathname } from "next/navigation";
 import { cn } from "@/lib/utils";
 import { Button } from "@/components/ui/button";
@@ -24,9 +25,19 @@ export function Navbar() {
     <nav className="sticky top-0 z-50 w-full border-b bg-background/80 backdrop-blur-md">
       <div className="container mx-auto flex h-16 items-center justify-between px-4 lg:px-8">
         <div className="flex items-center gap-2">
-          <Link href="/" className="group flex flex-col leading-none">
-            <span className="text-xl font-bold tracking-tight text-primary">SABRINA BARROS</span>
-            <span className="text-[10px] font-medium tracking-[0.2em] text-muted-foreground uppercase">Saúde & Gestão</span>
+          <Link href="/" className="group flex items-center gap-3">
+            <div className="relative h-10 w-10 overflow-hidden rounded-lg border border-primary/10 shadow-sm transition-transform group-hover:scale-105">
+              <Image 
+                src="/sb-logo.png" 
+                alt="Sabrina Barros Logo" 
+                fill
+                className="object-cover"
+              />
+            </div>
+            <div className="flex flex-col leading-none">
+              <span className="text-lg font-bold tracking-tight text-primary">SABRINA BARROS</span>
+              <span className="text-[10px] font-medium tracking-[0.2em] text-muted-foreground uppercase">Saúde & Gestão</span>
+            </div>
           </Link>
         </div>
 

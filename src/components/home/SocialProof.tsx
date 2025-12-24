@@ -45,7 +45,7 @@ export function SocialProof() {
               href={logo.href}
               target="_blank"
               rel="noopener noreferrer"
-              className="flex items-center justify-center grayscale opacity-60 hover:grayscale-0 hover:opacity-100 transition-all duration-500 hover:scale-110 active:scale-95 block cursor-pointer"
+              className="flex items-center justify-center grayscale opacity-80 hover:grayscale-0 hover:opacity-100 transition-all duration-500 hover:scale-110 active:scale-95 block cursor-pointer"
             >
               {logo.isText ? (
                 <span className="text-lg md:text-2xl font-medium tracking-tight font-montserrat text-primary">

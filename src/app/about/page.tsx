@@ -125,6 +125,15 @@ export default function AboutPage() {
                 role: "Consultora de Relacionamento Rede Credenciada",
                 period: "2011 - 2013",
                 description: []
+              },
+              {
+                company: "Clínica de Odontologia de Alta Performance",
+                role: "Cirurgiã Dentista Especialista em Cirurgia Ortognática",
+                period: "2004 - 2011",
+                description: [
+                  "Atuação clínica focada em cirurgias de alta complexidade e precisão.",
+                  "Base da visão detalhista e técnica aplicada hoje à gestão de saúde."
+                ]
               }
             ].map((exp, idx) => (
               <div key={idx} className="relative group">

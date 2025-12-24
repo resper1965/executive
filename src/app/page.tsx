@@ -31,7 +31,7 @@ export default function Home() {
               </Button>
             </Link>
             <Link href="/checklist/rn623" className="flex-1">
-              <Button size="lg" variant="outline" className="w-full border-white/30 hover:bg-white/10 rounded-xl px-8 py-8 font-bold text-lg transition-all">
+              <Button size="lg" variant="secondary" className="w-full rounded-xl px-8 py-8 font-bold text-lg shadow-lg hover:shadow-xl transition-all">
                 Checklist RN 623/2024
               </Button>
             </Link>
