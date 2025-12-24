@@ -91,7 +91,7 @@ export default function ServicesPage() {
           </p>
           <Link href="/contact">
             <Button size="lg" variant="secondary" className="rounded-full px-10 py-7 font-bold text-lg">
-              Agendar Reunião Estratégica
+              Marcar Reunião
             </Button>
           </Link>
         </div>
