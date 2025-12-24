@@ -30,34 +30,47 @@ async function scrapePost(url) {
         const dateElement = doc.querySelector('time') || doc.querySelector('meta[property="article:published_time"]');
         const date = dateElement?.getAttribute('datetime') || dateElement?.getAttribute('content') || new Date().toISOString();
 
-        // Precise selectors for Sabrina's specific Elementor setup
-        const contentElement = doc.querySelector('.elementor-676 .elementor-widget-theme-post-content') ||
-            doc.querySelector('.elementor-widget-theme-post-content') ||
-            doc.querySelector('.elementor-676 .e-con-inner') ||
-            doc.querySelector('.elementor-widget-container .entry-content') ||
-            doc.querySelector('.entry-content') ||
-            doc.querySelector('.elementor-location-single') ||
-            doc.querySelector('.elementor-page') ||
-            doc.querySelector('article') ||
-            doc.querySelector('main');
+        // Comprehensive list of selectors for Sabrina's various Elementor and WP structures
+        const selectors = [
+            '.elementor-widget-theme-post-content',
+            '.elementor-676 .elementor-widget-container',
+            '.elementor-676 .e-con-inner',
+            '.entry-content',
+            '.elementor-location-single',
+            '.elementor-page',
+            'article',
+            'main'
+        ];
+
+        let contentElement = null;
+        for (const selector of selectors) {
+            const el = doc.querySelector(selector);
+            // Ensure the element actually contains some content text
+            if (el && el.textContent.trim().length > 200) {
+                contentElement = el;
+                break;
+            }
+        }
 
         if (!contentElement) {
-            console.log(`Skipping ${url}: Content not found`);
+            console.log(`Skipping ${url}: Content not found or too short`);
             return null;
         }
 
-        // Comprehensive clean up
+        // Comprehensive clean up of UI/Theme elements
         const selectorsToRemove = [
             '.wp-block-rank-math-toc-block',
             '.elementor-button-wrapper',
             '.rek-social-share',
             '.elementor-post-navigation',
-            '.elementor-widget-heading', // Sometimes titles are repeated
+            '.elementor-widget-heading',
+            '.elementor-widget-image', // Usually featured image or ads
             'header',
             'footer',
             '.wpr-sharing-buttons',
             '#rank-math-toc',
-            '.rek-author-box'
+            '.rek-author-box',
+            '.elementor-widget-button'
         ];
         selectorsToRemove.forEach(sel => {
             contentElement.querySelectorAll(sel).forEach(el => el.remove());
