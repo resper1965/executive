@@ -1,77 +1,98 @@
 import { Button } from "@/components/ui/button";
-import { Input } from "@/components/ui/input";
-import { Card, CardContent } from "@/components/ui/card";
-import { Linkedin, Mail } from "lucide-react";
+import { Linkedin, Mail, Calendar, MessageCircle } from "lucide-react";
+import Link from "next/link";
 
 export default function ContactPage() {
   return (
-    <div className="container mx-auto px-4 py-20 lg:px-8 max-w-6xl">
+    <div className="container mx-auto px-4 py-20 lg:px-8 max-w-4xl">
       <div className="text-center mb-16">
-        <h1 className="text-4xl font-serif font-bold mb-6 sm:text-5xl">Contato</h1>
+        <h1 className="text-4xl font-serif font-bold mb-6 sm:text-5xl">Vamos Conversar?</h1>
         <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
-          Tem alguma dúvida, proposta de consultoria ou convite para palestras? Deixe sua mensagem abaixo.
+          Agende uma conversa de 30 minutos para discutir como posso ajudar sua organização.
         </p>
       </div>
 
-      <div className="grid grid-cols-1 lg:grid-cols-3 gap-12">
-        <div className="lg:col-span-2">
-          <Card className="border-none shadow-xl">
-            <CardContent className="p-8 sm:p-12">
-              <form className="space-y-6">
-                <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
-                  <div className="space-y-2">
-                    <label className="text-sm font-medium uppercase tracking-wider text-muted-foreground">Nome Completo</label>
-                    <Input placeholder="Seu nome" className="rounded-xl border-muted h-12" />
-                  </div>
-                  <div className="space-y-2">
-                    <label className="text-sm font-medium uppercase tracking-wider text-muted-foreground">E-mail Profissional</label>
-                    <Input type="email" placeholder="seu@email.com" className="rounded-xl border-muted h-12" />
-                  </div>
-                </div>
-                <div className="space-y-2">
-                  <label className="text-sm font-medium uppercase tracking-wider text-muted-foreground">Assunto</label>
-                  <Input placeholder="Como posso ajudar?" className="rounded-xl border-muted h-12" />
-                </div>
-                <div className="space-y-2">
-                  <label className="text-sm font-medium uppercase tracking-wider text-muted-foreground">Mensagem</label>
-                  <textarea 
-                    className="w-full min-h-[150px] rounded-xl border border-muted bg-background px-3 py-2 text-sm ring-offset-background placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50"
-                    placeholder="Escreva sua mensagem aqui..."
-                  ></textarea>
-                </div>
-                <Button className="w-full h-12 rounded-xl text-lg font-medium tracking-wide">Enviar Mensagem</Button>
-              </form>
-            </CardContent>
-          </Card>
+      {/* Main CTA - Calendly */}
+      <div className="bg-primary text-primary-foreground rounded-3xl p-12 text-center mb-12 relative overflow-hidden">
+        <div className="absolute top-0 right-0 w-64 h-64 bg-white/5 rounded-full -mr-32 -mt-32 blur-3xl"></div>
+        <div className="relative z-10">
+          <div className="inline-flex p-4 bg-white/10 rounded-2xl mb-6">
+            <Calendar className="h-10 w-10" />
+          </div>
+          <h2 className="text-3xl font-serif font-bold mb-4">Agende uma Reunião</h2>
+          <p className="text-primary-foreground/80 mb-8 max-w-lg mx-auto">
+            Escolha o melhor horário na minha agenda. Conversa rápida de 30 minutos para entender suas necessidades.
+          </p>
+          <a 
+            href="https://calendly.com/sabrina-barros/30min" 
+            target="_blank" 
+            rel="noopener noreferrer"
+          >
+            <Button size="lg" variant="secondary" className="rounded-full px-12 py-7 font-bold text-lg">
+              Agendar Agora
+            </Button>
+          </a>
         </div>
+      </div>
 
-        <div className="space-y-8">
-          <div className="bg-primary/5 rounded-2xl p-8 border border-primary/10">
-            <h3 className="text-xl font-serif font-bold mb-6">Informações de Contato</h3>
-            <div className="space-y-6">
-              <div className="flex gap-4">
-                <div className="text-primary"><Mail className="h-5 w-5" /></div>
-                <div>
-                  <p className="text-xs uppercase tracking-widest text-muted-foreground font-bold">E-mail</p>
-                  <p className="text-sm font-medium">contato@sabrinabarros.com</p>
-                </div>
-              </div>
-              <a href="https://www.linkedin.com/in/sabrina-barros/" target="_blank" rel="noopener" className="flex gap-4 group">
-                <div className="text-primary group-hover:scale-110 transition-transform"><Linkedin className="h-5 w-5" /></div>
-                <div>
-                  <p className="text-xs uppercase tracking-widest text-muted-foreground font-bold">Linkedin</p>
-                  <p className="text-sm font-medium group-hover:text-primary transition-colors">linkedin.com/in/sabrina-barros</p>
-                </div>
-              </a>
+      {/* Secondary Options */}
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+        {/* LinkedIn */}
+        <a 
+          href="https://www.linkedin.com/in/sabrina-barros/" 
+          target="_blank" 
+          rel="noopener noreferrer"
+          className="group p-8 rounded-2xl border border-border bg-white hover:border-primary/30 hover:shadow-xl transition-all"
+        >
+          <div className="flex items-start gap-4">
+            <div className="p-3 bg-primary/5 rounded-xl text-primary group-hover:bg-primary group-hover:text-white transition-colors">
+              <Linkedin className="h-6 w-6" />
+            </div>
+            <div>
+              <h3 className="text-xl font-serif font-bold mb-2 group-hover:text-primary transition-colors">
+                Conecte no LinkedIn
+              </h3>
+              <p className="text-muted-foreground text-sm">
+                Acompanhe insights sobre saúde suplementar e gestão estratégica.
+              </p>
             </div>
           </div>
-          
-          <div className="p-8 border border-muted rounded-2xl">
-            <h4 className="font-bold mb-4">Newsletter Semanal</h4>
-            <p className="text-sm text-muted-foreground mb-4">Receba insights exclusivos sobre saúde suplementar diretamente na sua caixa de entrada.</p>
-            <Input placeholder="Seu e-mail" className="rounded-xl mb-3" />
-            <Button size="sm" variant="outline" className="w-full rounded-xl">Assinar</Button>
+        </a>
+
+        {/* Email */}
+        <a 
+          href="mailto:contato@sabrinabarros.com"
+          className="group p-8 rounded-2xl border border-border bg-white hover:border-primary/30 hover:shadow-xl transition-all"
+        >
+          <div className="flex items-start gap-4">
+            <div className="p-3 bg-primary/5 rounded-xl text-primary group-hover:bg-primary group-hover:text-white transition-colors">
+              <Mail className="h-6 w-6" />
+            </div>
+            <div>
+              <h3 className="text-xl font-serif font-bold mb-2 group-hover:text-primary transition-colors">
+                Envie um E-mail
+              </h3>
+              <p className="text-muted-foreground text-sm">
+                contato@sabrinabarros.com
+              </p>
+            </div>
           </div>
+        </a>
+      </div>
+
+      {/* Quick Links */}
+      <div className="mt-16 text-center">
+        <p className="text-sm text-muted-foreground mb-4">Ou explore mais sobre meu trabalho:</p>
+        <div className="flex flex-wrap justify-center gap-4">
+          <Link href="/services">
+            <Button variant="outline" className="rounded-full">Serviços</Button>
+          </Link>
+          <Link href="/blog">
+            <Button variant="outline" className="rounded-full">Blog</Button>
+          </Link>
+          <Link href="/about">
+            <Button variant="outline" className="rounded-full">Sobre Mim</Button>
+          </Link>
         </div>
       </div>
     </div>
