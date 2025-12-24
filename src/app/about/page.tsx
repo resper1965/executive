@@ -69,6 +69,15 @@ export default function AboutPage() {
           <div className="relative pl-8 space-y-16 before:absolute before:inset-0 before:left-[11px] before:h-full before:w-[1px] before:bg-border/60">
             {[
               {
+                company: "MARSH",
+                role: "Gerente de Relacionamento Especialista",
+                period: "2026 - Atual",
+                description: [
+                  "Atuação consultiva junto a grandes empresas na estruturação e gestão de programas de benefícios de saúde.",
+                  "Inteligência de dados aplicada à otimização de custos e melhoria da experiência do beneficiário."
+                ]
+              },
+              {
                 company: "BenCorp",
                 role: "Relacionamento pós-vendas",
                 period: "2024 - 2025",
@@ -128,7 +137,7 @@ export default function AboutPage() {
               },
               {
                 company: "Clínica de Odontologia de Alta Performance",
-                role: "Cirurgiã Dentista Especialista em Cirurgia Ortognática",
+                role: "Cirurgiã Dentista Especialista em Cirurgia Buco-Maxilofacial",
                 period: "2004 - 2011",
                 description: [
                   "Atuação clínica focada em cirurgias de alta complexidade e precisão.",
