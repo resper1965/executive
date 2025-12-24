@@ -90,7 +90,7 @@ export default function ServicesPage() {
             Cada organização possui desafios únicos. Vamos desenhar uma parceria que atenda exatamente às necessidades da sua liderança.
           </p>
           <a 
-            href="https://calendly.com/sabrina-barros" 
+            href="https://calendly.com/sabrina-barros/30min" 
             target="_blank" 
             rel="noopener noreferrer"
           >
