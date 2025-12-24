@@ -3,6 +3,7 @@ import { Inter, Playfair_Display } from "next/font/google";
 import "./globals.css";
 import { Navbar } from "@/components/layout/Navbar";
 import { Footer } from "@/components/layout/Footer";
+import { GoogleAnalytics } from "@next/third-parties/google";
 
 const inter = Inter({
   variable: "--font-inter",
@@ -37,6 +38,9 @@ export default function RootLayout({
           <main className="flex-1">{children}</main>
           <Footer />
         </div>
+        {process.env.NEXT_PUBLIC_GA_ID && (
+          <GoogleAnalytics gaId={process.env.NEXT_PUBLIC_GA_ID} />
+        )}
       </body>
     </html>
   );
