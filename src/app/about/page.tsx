@@ -23,17 +23,17 @@ export default function AboutPage() {
 
         <div>
           <h1 className="text-4xl font-serif font-bold mb-6 sm:text-5xl lg:text-6xl">Sabrina Barros</h1>
-          <p className="text-xl text-primary font-medium mb-8">Dentista | Executiva de Saúde Suplementar | Especialista em Gestão de Redes</p>
+          <p className="text-xl text-primary font-medium mb-8">Strategic Partner | Trusted Advisor em Saúde Suplementar</p>
           
           <div className="prose prose-slate lg:prose-lg max-w-none mb-10 text-muted-foreground leading-relaxed">
             <p>
-              Minha trajetória começou no consultório odontológico, onde aprendi que a saúde bucal é a porta de entrada para o bem-estar sistêmico. No entanto, minha curiosidade sobre o &ldquo;como&rdquo; as coisas funcionam me levou dos atendimentos clínicos para as grandes mesas de decisão da saúde suplementar brasileira.
+              Minha trajetória começou no consultório odontológico, onde a precisão clínica era a regra. Hoje, traduzo essa mesma precisão para o mundo corporativo da saúde suplementar, atuando como uma <strong>Trusted Advisor</strong> para organizações que buscam mais do que apenas conformidade.
             </p>
             <p>
-              Hoje, atuo como executiva líder, unindo o olhar técnico da odontologia com a visão estratégica necessária para gerir redes credenciadas, otimizar processos e garantir que a jornada do beneficiário seja sempre pautada pela excelência e pela regulação (ANS).
+              Com uma visão independente e estratégica, apoio lideranças na <strong>mitigação de riscos regulatórios</strong>, no desenvolvimento de projetos de alta complexidade e no posicionamento de executivos que buscam novos horizontes ou planejam sucessões seguras.
             </p>
             <p>
-              Este blog é o meu espaço para compartilhar o que aprendo todos os dias nessa intersecção fascinante entre a ciência da saúde e a arte da gestão.
+              Minha missão é ser a parceira que ajuda a separar o ruído do sinal, garantindo que a tomada de decisão seja sustentável, eficiente e, acima de tudo, focada no equilíbrio entre viabilidade econômica e o cuidado humano.
             </p>
           </div>
 

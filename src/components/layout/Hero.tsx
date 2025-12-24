@@ -20,11 +20,11 @@ export function Hero() {
               Sabrina Barros
             </h1>
             <p className="text-xl text-primary font-medium tracking-wide uppercase mb-8">
-              Estratégia, Inovação e Cuidado em Saúde
+              Trusted Advisor em Saúde & Gestão Estratégica
             </p>
             <div className="prose prose-slate lg:prose-lg max-w-2xl text-muted-foreground leading-relaxed">
               <p>
-                Dentista e Executiva de Saúde Suplementar, dedicada a transformar o mercado através de gestão estratégica, regulação e excelência no cuidado.
+                Apoiando lideranças e organizações na mitigação de riscos, desenvolvimento de projetos complexos e transições executivas de alto impacto no setor de saúde.
               </p>
             </div>
           </motion.div>
