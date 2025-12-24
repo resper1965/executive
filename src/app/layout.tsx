@@ -17,6 +17,9 @@ const playfair = Playfair_Display({
 export const metadata: Metadata = {
   title: "Sabrina Barros | Saúde & Gestão",
   description: "Blog pessoal de Sabrina Barros, dentista e executiva de saúde suplementar.",
+  icons: {
+    icon: "/favicon.png",
+  },
 };
 
 export default function RootLayout({
