@@ -12,9 +12,9 @@ export default function Home() {
       {/* Newsletter / CTA Section */}
       <section className="py-20 bg-primary text-primary-foreground">
         <div className="container mx-auto px-4 text-center lg:px-8">
-          <h2 className="text-3xl font-serif font-bold mb-6">Fique por dentro das novidades</h2>
+          <h2 className="text-3xl font-serif font-bold mb-6">Receba Insights de Gestão Estratégica</h2>
           <p className="text-primary-foreground/80 mb-8 max-w-xl mx-auto">
-            Assine nossa newsletter para receber insights exclusivos sobre saúde e gestão diretamente no seu e-mail.
+            Junte-se a outros líderes de saúde e receba semanalmente análises exclusivas sobre regulação, mercado e odontologia de alta performance.
           </p>
           <div className="flex flex-col sm:flex-row gap-3 justify-center max-w-md mx-auto">
             <input 

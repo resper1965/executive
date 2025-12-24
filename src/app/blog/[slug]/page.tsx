@@ -1,9 +1,11 @@
 import { getPostBySlug, getAllPosts } from "@/lib/content-api";
+import { Metadata } from "next";
 import { notFound } from "next/navigation";
 import { MDXRemote } from "next-mdx-remote/rsc";
 import { Clock, Tag, ArrowLeft } from "lucide-react";
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
+import Script from "next/script";
 
 interface PageProps {
   params: Promise<{ slug: string }>;
@@ -24,8 +26,31 @@ export default async function BlogPostPage({ params }: PageProps) {
     notFound();
   }
 
+  const jsonLd = {
+    "@context": "https://schema.org",
+    "@type": "BlogPosting",
+    "headline": post.title,
+    "description": post.excerpt,
+    "datePublished": post.date,
+    "author": {
+      "@type": "Person",
+      "name": "Sabrina Barros",
+      "url": "https://www.linkedin.com/in/sabrina-barros/"
+    },
+    "image": "https://site-sabrina-nessbr-projects.vercel.app/hero-cover.png",
+    "publisher": {
+      "@type": "Person",
+      "name": "Sabrina Barros"
+    }
+  };
+
   return (
     <article className="container mx-auto px-4 py-20 lg:px-8 max-w-4xl">
+      <Script
+        id="structured-data"
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+      />
       <Link href="/blog">
         <Button variant="ghost" size="sm" className="mb-8 gap-2 -ml-4">
           <ArrowLeft className="h-4 w-4" /> Voltar ao Blog
