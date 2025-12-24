@@ -2,35 +2,12 @@ import { Card, CardContent, CardFooter, CardHeader } from "@/components/ui/card"
 import { Button } from "@/components/ui/button";
 import { ArrowRight, Clock, Tag } from "lucide-react";
 import Link from "next/link";
-
-const featuredPosts = [
-  {
-    title: "RN 623: O que muda na saúde suplementar e como isso te afeta?",
-    excerpt: "Uma análise sobre as novas regras da ANS e como operadoras e beneficiários devem se preparar para as mudanças.",
-    category: "Regulação",
-    date: "23 Dez, 2025",
-    readTime: "7 min",
-    href: "/blog/rn-623-impactos-saude-suplementar"
-  },
-  {
-    title: "Saúde Mental e Bem-Estar Corporativo: Produtividade de Verdade",
-    excerpt: "Por que empresas que investem na saúde da mente colhem resultados extraordinários e equipes mais engajadas.",
-    category: "Bem-estar",
-    date: "21 Dez, 2025",
-    readTime: "6 min",
-    href: "/blog/saude-mental-e-bem-estar-corporativo"
-  },
-  {
-    title: "Rede Credenciada: Por que o Relacionamento com Dentistas é o Maior Ativo?",
-    excerpt: "O segredo para um plano odontológico de sucesso está na parceria e no respeito mútuo com quem entrega o cuidado.",
-    category: "Gestão",
-    date: "19 Dez, 2025",
-    readTime: "8 min",
-    href: "/blog/rede-credenciada-odontologica"
-  }
-];
+import { getAllPosts } from "@/lib/content-api";
 
 export function FeaturedPosts() {
+  const allPosts = getAllPosts();
+  const featuredPosts = allPosts.slice(0, 3);
+
   return (
     <section className="bg-muted/30 py-20">
       <div className="container mx-auto px-4 lg:px-8">
@@ -57,7 +34,7 @@ export function FeaturedPosts() {
                   {post.category}
                 </div>
                 <h3 className="text-xl font-serif font-bold leading-tight hover:text-primary transition-colors">
-                  <Link href={post.href}>{post.title}</Link>
+                  <Link href={`/blog/${post.slug}`}>{post.title}</Link>
                 </h3>
               </CardHeader>
               <CardContent className="flex-1">
