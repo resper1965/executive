@@ -34,12 +34,12 @@ export default function EventsPage() {
     <div className="container mx-auto px-4 py-20 lg:px-8">
       <div className="max-w-4xl mx-auto">
         {/* Header */}
-        <div className="text-center mb-20">
+        <div className="mb-20 max-w-3xl">
           <div className="inline-flex p-3 bg-primary/5 rounded-2xl mb-6">
             <Mic2 className="h-8 w-8 text-primary" />
           </div>
           <h1 className="text-4xl font-serif font-bold mb-6 sm:text-5xl">Palestras & Eventos</h1>
-          <p className="text-xl text-muted-foreground max-w-2xl mx-auto leading-relaxed">
+          <p className="text-xl text-muted-foreground leading-relaxed">
             Compartilho insights sobre gestão de saúde suplementar, regulação e inovação em eventos corporativos e congressos do setor.
           </p>
         </div>
