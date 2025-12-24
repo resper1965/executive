@@ -98,7 +98,7 @@ export default function AboutPage() {
               {
                 company: "BenCorp",
                 role: "Relacionamento pós-vendas",
-                period: "ago 2024 - dez 2025",
+                period: "2024 - 2025",
                 description: [
                   "Gestão estratégica de satisfação e identificação de oportunidades em clientes corporate.",
                   "Coordenação multissetorial para resolução eficaz de problemas pós-venda.",
