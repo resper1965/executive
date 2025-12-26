@@ -5,10 +5,10 @@ Este guia detalha o processo completo de configuração da plataforma Executive,
 ## 📋 Pré-requisitos
 
 - Node.js 20+ instalado
-- Conta no Supabase
-- Conta no Stripe (para pagamentos)
-- Conta OpenAI (para chatbot IA)
-- Conta Vercel (para deploy)
+- Conta no Supabase (obrigatório)
+- Conta Vercel (obrigatório - inclui AI Gateway)
+- Conta no Stripe (opcional - mock configurado)
+- Conta OpenAI (opcional - gerenciada via Vercel AI Gateway)
 
 ## 🚀 Instalação Local
 
@@ -58,25 +58,29 @@ STRIPE_PRICE_PROFESSIONAL=price_xxx
 STRIPE_PRICE_ENTERPRISE=price_xxx
 ```
 
-**Como obter:**
+**Nota:** Este projeto atualmente usa **números mock do Stripe** para desenvolvimento. O sistema de pagamentos está configurado mas não processa cobranças reais.
+
+Para produção com pagamentos reais:
 1. Acesse [Stripe Dashboard](https://dashboard.stripe.com)
-2. Em Developers > API keys, copie a Secret key
+2. Em Developers > API keys, copie a Secret key de produção (`sk_live_xxx`)
 3. Crie produtos e preços em Products
 4. Copie os Price IDs dos planos Professional e Enterprise
 
-**Configurar Webhook:**
+**Configurar Webhook (Produção):**
 1. Em Developers > Webhooks, clique "Add endpoint"
 2. URL: `https://seu-dominio.vercel.app/api/stripe/webhook`
 3. Eventos: `checkout.session.completed`, `customer.subscription.updated`, `customer.subscription.deleted`
 4. Copie o Webhook Secret
 
-#### OpenAI
+#### OpenAI / Vercel AI Gateway
 
 ```env
 OPENAI_API_KEY=sk-xxx
 ```
 
-**Como obter:**
+**Nota:** Este projeto usa **Vercel AI Gateway** para gerenciar as chamadas de IA. As API keys já estão configuradas no AI Gateway da Vercel, portanto você **não precisa** configurar `OPENAI_API_KEY` localmente se estiver usando o ambiente Vercel.
+
+Para desenvolvimento local (opcional):
 1. Acesse [OpenAI Platform](https://platform.openai.com)
 2. Vá em API keys
 3. Crie uma nova key
@@ -309,15 +313,19 @@ STRIPE_WEBHOOK_SECRET=whsec_xxx
 
 ### Stripe webhook não funciona
 
-- Confirme que `STRIPE_WEBHOOK_SECRET` está configurado
-- Verifique se a URL do webhook está correta no Stripe Dashboard
-- Em local, use `stripe listen` CLI
+- **Mock Mode:** O sistema atual usa mock - webhooks não são necessários para desenvolvimento
+- Para produção real:
+  - Confirme que `STRIPE_WEBHOOK_SECRET` está configurado
+  - Verifique se a URL do webhook está correta no Stripe Dashboard
+  - Em local, use `stripe listen` CLI para testar webhooks
 
 ### Chatbot não responde
 
-- Verifique se `OPENAI_API_KEY` está configurado
-- Confirme que tem créditos na conta OpenAI
+- **Vercel AI Gateway:** Se estiver usando deploy Vercel, o AI Gateway já gerencia as keys automaticamente
+- Para desenvolvimento local: Verifique se `OPENAI_API_KEY` está configurado no `.env.local`
+- Confirme que tem créditos na conta OpenAI (se usando chave própria)
 - Veja logs em `/api/chat` para erros
+- O chatbot usa GPT-4o-mini via Vercel AI SDK
 
 ## 📚 Estrutura de Arquivos
 
