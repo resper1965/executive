@@ -360,11 +360,11 @@ supabase/
 
 - [ ] Todas variáveis de ambiente configuradas
 - [ ] RLS policies ativas no Supabase
-- [ ] Stripe webhooks configurados com secret correto
 - [ ] HTTPS habilitado (automático na Vercel)
 - [ ] Super admins configurados corretamente
-- [ ] Logs de erro configurados (Sentry recomendado)
+- [ ] Monitoramento via Vercel Analytics ativado
 - [ ] Rate limiting no chat API (via Vercel)
+- [ ] Stripe configurado para produção (se necessário)
 
 ### Boas Práticas
 
@@ -389,7 +389,7 @@ Após configuração básica:
 2. ✅ Configure domínio customizado na Vercel
 3. ✅ Crie conteúdo de exemplo (posts, páginas)
 4. ✅ Configure Google Analytics (opcional)
-5. ✅ Implemente backup automático
-6. ✅ Configure monitoring (Sentry, Vercel Analytics)
+5. ✅ Ative Vercel Analytics para monitoramento
+6. ✅ Configure backup automático do Supabase
 
 Bom trabalho! 🚀
