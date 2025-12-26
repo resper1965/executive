@@ -74,7 +74,7 @@ export async function middleware(request: NextRequest) {
 
   // If no tenant found and it's a subdomain/custom domain, return 404
   if (!tenant && (tenantSubdomain || tenantCustomDomain)) {
-    return NextResponse.next();
+    return new NextResponse(null, { status: 404 });
   }
 
   // Pass tenant info to the app via headers
