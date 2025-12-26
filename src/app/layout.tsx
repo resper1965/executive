@@ -52,7 +52,11 @@ export const metadata: Metadata = {
     images: ["/sabrinabarros-perfil.png"],
   },
   icons: {
-    icon: "/favicon.png",
+    icon: [
+      { url: "/favicon.png", sizes: "32x32", type: "image/png" },
+      { url: "/favicon.svg", type: "image/svg+xml" },
+    ],
+    apple: "/favicon.png",
   },
 };
 
