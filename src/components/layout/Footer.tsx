@@ -39,7 +39,18 @@ export function Footer() {
         </div>
         
         <div className="mt-12 pt-8 border-t text-center text-[10px] text-muted-foreground uppercase tracking-widest">
-          © {new Date().getFullYear()} SABRINA BARROS. TODOS OS DIREITOS RESERVADOS.
+          <p>© {new Date().getFullYear()} SABRINA BARROS. TODOS OS DIREITOS RESERVADOS.</p>
+          <p className="mt-2">
+            Powered by{" "}
+            <a 
+              href="https://bekaa.eu" 
+              target="_blank" 
+              rel="noopener noreferrer"
+              className="text-primary hover:underline"
+            >
+              Bekaa
+            </a>
+          </p>
         </div>
       </div>
     </footer>

@@ -3,6 +3,7 @@ import { Inter, Playfair_Display, Montserrat } from "next/font/google";
 import "./globals.css";
 import { Navbar } from "@/components/layout/Navbar";
 import { Footer } from "@/components/layout/Footer";
+import { ChatBot } from "@/components/chat";
 import { GoogleAnalytics } from "@next/third-parties/google";
 
 const inter = Inter({
@@ -22,23 +23,23 @@ const montserrat = Montserrat({
 });
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://site-sabrina-nessbr-projects.vercel.app"),
+  metadataBase: new URL("https://executive.vercel.app"),
   title: {
-    default: "Sabrina Barros | Saúde & Gestão",
-    template: "%s | Sabrina Barros",
+    default: "Executive | Portais Estratégicos",
+    template: "%s | Executive",
   },
-  description: "Estrategista de Saúde Suplementar, Dentista e Executiva. Insights sobre gestão, regulação e inovação na saúde.",
+  description: "Plataforma de portais profissionais para consultores e executivos. Desenvolvido por Bekaa.",
   openGraph: {
-    title: "Sabrina Barros | Saúde & Gestão",
-    description: "Insights sobre gestão, regulação e inovação na saúde suplementar.",
+    title: "Executive | Portais Estratégicos",
+    description: "Plataforma de portais profissionais para consultores e executivos.",
     url: "/",
-    siteName: "Sabrina Barros",
+    siteName: "Executive",
     images: [
       {
         url: "/sabrinabarros-perfil.png",
         width: 400,
         height: 400,
-        alt: "Sabrina Barros - Conselheira de Saúde Suplementar",
+        alt: "Executive - Portais Estratégicos",
       },
     ],
     locale: "pt-BR",
@@ -46,8 +47,8 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Sabrina Barros | Saúde & Gestão",
-    description: "Insights sobre gestão, regulação e inovação na saúde suplementar.",
+    title: "Executive | Portais Estratégicos",
+    description: "Plataforma de portais profissionais para consultores e executivos.",
     images: ["/sabrinabarros-perfil.png"],
   },
   icons: {
@@ -70,6 +71,7 @@ export default function RootLayout({
           <main className="flex-1">{children}</main>
           <Footer />
         </div>
+        <ChatBot tenantName="Sabrina Barros" />
         <GoogleAnalytics gaId="G-3W69W953QN" />
       </body>
     </html>
