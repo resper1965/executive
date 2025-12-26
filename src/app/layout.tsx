@@ -67,21 +67,8 @@ export const metadata: Metadata = {
 
 // Função helper para obter tenant do header
 async function getTenantFromHeader(): Promise<Tenant | null> {
-  const headersList = await headers();
-  const tenantId = headersList.get("x-tenant-id");
-  
-  if (!tenantId) return null;
-  
-  // Buscar tenant pelo ID
-  const { createClient } = await import("@/lib/supabase/server");
-  const supabase = await createClient();
-  const { data } = await supabase
-    .from("tenants")
-    .select("*")
-    .eq("id", tenantId)
-    .single();
-  
-  return data || null;
+  const { getCurrentTenant } = await import("@/lib/tenant-api");
+  return await getCurrentTenant();
 }
 
 export default async function RootLayout({
