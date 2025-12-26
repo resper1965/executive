@@ -4,7 +4,7 @@
 
 Todas as variáveis abaixo foram configuradas no projeto **executive** na Vercel para os ambientes Production, Preview e Development:
 
-### Supabase
+### Supabase (Configuradas via MCP - 26/12/2025)
 - `NEXT_PUBLIC_SUPABASE_URL`: https://hyeifxvxifhrapfdvfry.supabase.co
 - `NEXT_PUBLIC_SUPABASE_ANON_KEY`: sb_publishable_RMMpXpKBjUDFNQt9_X0aog_GzLv4jzd
 
