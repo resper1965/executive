@@ -65,21 +65,23 @@ export const metadata: Metadata = {
   },
 };
 
-// Função helper para parsear o header de tenant
+// Função helper para obter tenant do header
 async function getTenantFromHeader(): Promise<Tenant | null> {
   const headersList = await headers();
-  const tenantHeader = headersList.get("x-tenant-data");
+  const tenantId = headersList.get("x-tenant-id");
   
-  if (!tenantHeader) return null;
+  if (!tenantId) return null;
   
-  try {
-    // Decodifica base64 para string, depois parseia JSON
-    const jsonString = Buffer.from(tenantHeader, 'base64').toString('utf-8');
-    return JSON.parse(jsonString);
-  } catch (e) {
-    console.error("Failed to parse tenant header:", e);
-    return null;
-  }
+  // Buscar tenant pelo ID
+  const { createClient } = await import("@/lib/supabase/server");
+  const supabase = await createClient();
+  const { data } = await supabase
+    .from("tenants")
+    .select("*")
+    .eq("id", tenantId)
+    .single();
+  
+  return data || null;
 }
 
 export default async function RootLayout({
