@@ -73,7 +73,7 @@ export interface Database {
 }
 
 export interface TenantTheme {
-  preset: "executive" | "healthcare" | "corporate" | "minimal" | "vibrant";
+  preset: "executive" | "health-executive" | "healthcare" | "corporate" | "minimal" | "vibrant";
   primaryColor: string;
   accentColor: string;
   fontHeading: string;

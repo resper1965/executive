@@ -19,9 +19,9 @@ INSERT INTO public.tenants (
   NULL,
   '/sabrinabarros-perfil.png',
   '{
-    "preset": "executive",
-    "primaryColor": "#0f172a",
-    "accentColor": "#d4af37",
+    "preset": "health-executive",
+    "primaryColor": "#1e312b",
+    "accentColor": "#2d4a3e",
     "fontHeading": "Playfair Display",
     "fontBody": "Inter"
   }'::jsonb,

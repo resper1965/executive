@@ -11,6 +11,13 @@ export const themePresets: Record<string, TenantTheme> = {
     fontHeading: "Playfair Display",
     fontBody: "Inter",
   },
+  "health-executive": {
+    preset: "health-executive",
+    primaryColor: "#1e312b", // Deep Professional Green (Sabrina's signature)
+    accentColor: "#2d4a3e", // Forest Green accent
+    fontHeading: "Playfair Display",
+    fontBody: "Inter",
+  },
   healthcare: {
     preset: "healthcare",
     primaryColor: "#0d9488",
