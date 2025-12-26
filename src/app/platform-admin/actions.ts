@@ -13,8 +13,22 @@ const createTenantSchema = z.object({
 
 export async function createTenant(formData: FormData) {
   const supabase = await createClient();
-  
-  // TODO: Add Super Admin check here
+
+  // Verify super admin access
+  const { data: { user } } = await supabase.auth.getUser();
+  if (!user) {
+    return { error: { _form: ["Unauthorized"] } };
+  }
+
+  const { data: superAdmin } = await supabase
+    .from("super_admins")
+    .select("id")
+    .eq("email", user.email || "")
+    .single();
+
+  if (!superAdmin) {
+    return { error: { _form: ["Unauthorized - Super Admin access required"] } };
+  }
 
   const rawData = {
     name: formData.get("name"),
@@ -80,6 +94,22 @@ export async function createTenant(formData: FormData) {
 
 export async function updateTenantStatus(tenantId: string, status: "active" | "cancelled" | "past_due") {
   const supabase = await createClient();
+
+  // Verify super admin access
+  const { data: { user } } = await supabase.auth.getUser();
+  if (!user) {
+    throw new Error("Unauthorized");
+  }
+
+  const { data: superAdmin } = await supabase
+    .from("super_admins")
+    .select("id")
+    .eq("email", user.email || "")
+    .single();
+
+  if (!superAdmin) {
+    throw new Error("Unauthorized - Super Admin access required");
+  }
   
   const { error } = await supabase
     .from("tenants")

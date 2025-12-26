@@ -1,4 +1,4 @@
-import { createClient } from "@/lib/supabase/server";
+import { requireSuperAdmin } from "@/lib/auth";
 import { redirect } from "next/navigation";
 import Link from "next/link";
 import { LayoutDashboard, Users, Settings } from "lucide-react";
@@ -8,23 +8,8 @@ export default async function PlatformAdminLayout({
 }: {
   children: React.ReactNode;
 }) {
-  const supabase = await createClient();
-  const { data: { user } } = await supabase.auth.getUser();
-
-  if (!user) {
-    redirect("/login");
-  }
-
-  // TODO: Add proper Super Admin check here
-  // const { data: profile } = await supabase
-  //   .from('profiles')
-  //   .select('role')
-  //   .eq('id', user.id)
-  //   .single();
-  // 
-  // if (profile?.role !== 'super_admin') {
-  //   redirect('/');
-  // }
+  // Require super admin access
+  const user = await requireSuperAdmin();
 
   return (
     <div className="flex min-h-screen bg-slate-50">
