@@ -1,10 +1,15 @@
 import type { Metadata } from "next";
 import { Inter, Playfair_Display, Montserrat } from "next/font/google";
+import { headers } from "next/headers";
 import "./globals.css";
 import { Navbar } from "@/components/layout/Navbar";
 import { Footer } from "@/components/layout/Footer";
 import { ChatBot } from "@/components/chat";
+import { ThemeProvider } from "@/components/ThemeProvider";
+import { TenantProvider } from "@/components/providers/TenantProvider";
 import { GoogleAnalytics } from "@next/third-parties/google";
+import { themePresets } from "@/lib/themes";
+import type { Tenant } from "@/lib/supabase/types";
 
 const inter = Inter({
   variable: "--font-inter",
@@ -60,23 +65,49 @@ export const metadata: Metadata = {
   },
 };
 
-export default function RootLayout({
+// Função helper para parsear o header de tenant
+async function getTenantFromHeader(): Promise<Tenant | null> {
+  const headersList = await headers();
+  const tenantHeader = headersList.get("x-tenant-data");
+  
+  if (!tenantHeader) return null;
+  
+  try {
+    // Decodifica base64 para string, depois parseia JSON
+    const jsonString = Buffer.from(tenantHeader, 'base64').toString('utf-8');
+    return JSON.parse(jsonString);
+  } catch (e) {
+    console.error("Failed to parse tenant header:", e);
+    return null;
+  }
+}
+
+export default async function RootLayout({
   children,
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+  const tenant = await getTenantFromHeader();
+  // Se não houver tema configurado, usa executive como padrão
+  const theme = tenant?.theme || themePresets.executive;
+  const tenantName = tenant?.name || "Executive";
+
   return (
     <html lang="pt-BR">
       <body
         className={`${inter.variable} ${playfair.variable} ${montserrat.variable} font-sans antialiased`}
       >
-        <div className="flex min-h-screen flex-col">
-          <Navbar />
-          <main className="flex-1">{children}</main>
-          <Footer />
-        </div>
-        <ChatBot tenantName="Sabrina Barros" />
-        <GoogleAnalytics gaId="G-3W69W953QN" />
+        <TenantProvider tenant={tenant}>
+          <ThemeProvider theme={theme}>
+            <div className="flex min-h-screen flex-col">
+              <Navbar />
+              <main className="flex-1">{children}</main>
+              <Footer />
+            </div>
+            <ChatBot tenantName={tenantName} />
+            <GoogleAnalytics gaId={tenant?.settings?.googleAnalyticsId || "G-3W69W953QN"} />
+          </ThemeProvider>
+        </TenantProvider>
       </body>
     </html>
   );
