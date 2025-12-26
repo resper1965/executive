@@ -1,12 +1,34 @@
 import { openai } from "@ai-sdk/openai";
 import { streamText } from "ai";
 import { createClient } from "@/lib/supabase/server";
+import { z } from "zod";
 
 export const runtime = "edge";
 
+const chatRequestSchema = z.object({
+  messages: z.array(
+    z.object({
+      role: z.enum(["user", "assistant", "system"]),
+      content: z.string().min(1).max(10000),
+    })
+  ).min(1).max(50),
+  tenantId: z.string().uuid().optional(),
+});
+
 export async function POST(req: Request) {
   try {
-    const { messages, tenantId } = await req.json();
+    const body = await req.json();
+
+    // Validate input
+    const validation = chatRequestSchema.safeParse(body);
+    if (!validation.success) {
+      return new Response(
+        JSON.stringify({ error: "Invalid request format", details: validation.error.flatten() }),
+        { status: 400, headers: { "Content-Type": "application/json" } }
+      );
+    }
+
+    const { messages, tenantId } = validation.data;
 
     // Get tenant info for personalized context
     let tenantContext = "Você é o assistente virtual da plataforma Executive.";

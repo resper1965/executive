@@ -1,4 +1,5 @@
 import { getCurrentTenant } from "@/lib/tenant-api";
+import { requireAuth } from "@/lib/auth";
 import { redirect } from "next/navigation";
 
 export default async function AdminLayout({
@@ -6,11 +7,10 @@ export default async function AdminLayout({
 }: {
   children: React.ReactNode;
 }) {
-  const tenant = await getCurrentTenant();
+  // Require authentication
+  await requireAuth();
 
-  // TODO: Add Supabase Auth check here
-  // const { data: { user } } = await supabase.auth.getUser();
-  // if (!user) redirect("/admin/login");
+  const tenant = await getCurrentTenant();
 
   return (
     <div className="min-h-screen bg-slate-50">

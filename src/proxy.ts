@@ -47,34 +47,49 @@ export async function proxy(request: NextRequest) {
 
   // Query tenant from database
   let tenant = null;
-  
-  if (tenantSubdomain) {
-    const { data } = await supabase
-      .from("tenants")
-      .select("*")
-      .eq("subdomain", tenantSubdomain)
-      .single();
-    tenant = data;
-  } else if (tenantCustomDomain) {
-    const { data } = await supabase
-      .from("tenants")
-      .select("*")
-      .eq("custom_domain", tenantCustomDomain)
-      .single();
-    tenant = data;
-  } else {
-    // Default tenant for development (sabrina)
-    const { data } = await supabase
-      .from("tenants")
-      .select("*")
-      .eq("subdomain", "sabrina")
-      .single();
-    tenant = data;
+  let queryError = null;
+
+  try {
+    if (tenantSubdomain) {
+      const { data, error } = await supabase
+        .from("tenants")
+        .select("*")
+        .eq("subdomain", tenantSubdomain)
+        .single();
+      tenant = data;
+      queryError = error;
+    } else if (tenantCustomDomain) {
+      const { data, error } = await supabase
+        .from("tenants")
+        .select("*")
+        .eq("custom_domain", tenantCustomDomain)
+        .single();
+      tenant = data;
+      queryError = error;
+    } else {
+      // Default tenant for development (sabrina)
+      const { data, error } = await supabase
+        .from("tenants")
+        .select("*")
+        .eq("subdomain", "sabrina")
+        .single();
+      tenant = data;
+      queryError = error;
+    }
+  } catch (error) {
+    console.error("Proxy error querying tenant:", error);
+    return new NextResponse("Internal Server Error", { status: 500 });
   }
 
   // If no tenant found and it's a subdomain/custom domain, return 404
   if (!tenant && (tenantSubdomain || tenantCustomDomain)) {
-    return new NextResponse(null, { status: 404 });
+    console.warn(`Tenant not found for ${tenantSubdomain || tenantCustomDomain}`);
+    return new NextResponse("Tenant not found", { status: 404 });
+  }
+
+  // If there was a database error but not a "not found" error
+  if (queryError && queryError.code !== "PGRST116") {
+    console.error("Database error in proxy:", queryError);
   }
 
   // Pass tenant info to the app via headers
